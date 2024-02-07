@@ -55,3 +55,14 @@ allOpen {
     annotation("jakarta.persistence.Embeddable")
     annotation("jakarta.persistence.MappedSuperclass")
 }
+
+tasks.named("bootJar") {
+    mainClass = 'com.example.demokt.DemoKtApplication'
+}
+
+tasks.named("bootJar") {
+    manifest {
+        attributes 'Start-Class': 'com.example.demokt.DemoKtApplicationKt'
+    }
+}
+
