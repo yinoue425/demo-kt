@@ -4,7 +4,6 @@ WORKDIR /workspace/app
 
 COPY gradlew .
 COPY *.gradle ./
-COPY .gradle .gradle
 COPY gradle gradle
 COPY src src
 
