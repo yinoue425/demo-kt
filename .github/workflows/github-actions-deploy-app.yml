@@ -6,7 +6,7 @@ jobs:
   dev:
     name: deploy cloudrun to dev environment
     if: ${{ github.ref == 'refs/heads/develop' || github.base_ref == 'develop' }}
-    uses: ./_deployment.yaml
+    uses: ./_deployment.yml
     permissions:
       id-token: write
       contents: read
