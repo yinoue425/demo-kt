@@ -16,7 +16,7 @@ jobs:
     secrets: inherit
   prod:
     if: ${{ github.ref == 'refs/heads/main' || github.base_ref == 'main' }}
-    uses: ./.github/workflows/_deployment.yaml
+    uses: ./.github/workflows/_deployment.yml
     permissions:
       id-token: write
       contents: read
