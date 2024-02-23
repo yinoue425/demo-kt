@@ -4,7 +4,10 @@ on:
     branches: [ develop, main ]
 
 jobs:
+  test:
+    uses: ./.github/workflows/test.yml
   dev:
+    needs: [ test ]
     name: deploy cloudrun to dev environment
     if: ${{ github.ref == 'refs/heads/develop' || github.base_ref == 'develop' }}
     uses: ./.github/workflows/_deployment.yml
@@ -16,6 +19,8 @@ jobs:
       ref: ${{ github.sha }}
     secrets: inherit
   prod:
+    needs: [ test ]
+    name: deploy cloudrun to prod environment
     if: ${{ github.ref == 'refs/heads/main' || github.base_ref == 'main' }}
     uses: ./.github/workflows/_deployment.yml
     permissions:
